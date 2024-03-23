@@ -1,31 +1,42 @@
+
+<html xmlns = ″http://www.w3.org/1999/xhtml″>
+
+
 <head>
     <title> Silah </title>
 
     <style>
-.container {
+.contain {
   position: relative;
  
   float: left;
   color: white;
-  padding: 10px 16px;
+  
   background: burlywood;
   
 }
+.contain ul li{
+            display: inline;
+            padding: 10px ;
+            font-size: 25px;
+        }
 .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+   
     text-align: center;
     margin: 10px 20px;
     float: left;
 }
+th{font-size:xx-large;}
+h5{font-size:medium;}
+body{background-color: cornflowerblue;}
 
 /* Bottom left text */
 .text {
   position: absolute;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 150px 50px 0px 50px;
   bottom: 80px;
   left: 16px;
   color: black;
@@ -47,9 +58,6 @@
 #image{
     opacity: 0.6;
 }
-
-
-        
         .investor{
             background-color: blue;
             padding-left: 20px;
@@ -60,30 +68,28 @@
             border: 200px;
             align-items: center;
             table-layout:  fixed;
-
         }
         .a{ 
             float: right;
-
         }
-
-
-    
     </style>
 </head>
 <body>
     
     
 
-    <div class="container">
-        <div class="header" >
-            <h1 ><img src="logo.jpg" alt=" logo" > SILAH</h1>
-            <a href="index.html"> Home</a>
-            <a href="Investors.html">Investors</a>
-            <a href="Consultants.html">Consultants</a>
-            <a href="Team members.html">Team Members</a>
-            <a href="Contact Us.html"> Contact Us</a>
-            <a href="AboutUs.html"> About Us</a>
+    <div class="contain">
+        <h1 class="header" ><img src="logo.png" alt=" logo"> SILAH</h1>
+            
+            <div style="float: left; color: black;">
+            <ul>   
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="Investors.html">Investors</a></li>
+                <li><a href="Consultants.html">Consultants</a></li>
+                <li><a href="Team members.html">Team Members</a></li>
+                <li><a href="Contact Us.html"> Contact Us</a></li>
+                <li><a href="AboutUs.html"> About Us</a></li>
+            </ul> 
         </div>
 
 
@@ -92,7 +98,7 @@
         <div class="centered"><h1>Start.</h1>
             <h1>Build.</h1>
             <h1>Grow.</h1></div>
-        <div class="text"><p>While you're lost in trying to build your own company, the 'SILAH' platform comes to facilitate this long journey 
+         <div class="text"><p>While you're lost in trying to build your own company, the 'SILAH' platform comes to facilitate this long journey 
             of searching for you. Here, you will meet a diverse group of consultants and investors, in addition to members 
             that you can add to your team</p></div>    
     </div>    
@@ -104,27 +110,27 @@
 
 
 
-<table class="Investors">
+<table cellspacing="20" >
     <tr>
-        <th rowspan="2"><img src="Investors.png" alt="Investors"></th>
+        <th rowspan="2"><img src="home_investors.jpg" alt="Investors"></th>
         <th></th>
         <th><a href="Investors.html">Investors</a> <br/><h5>Find investor to your idea</h5></th><br/>
         
     </tr>
 
 </table>
-<table class="Consultants" >
+<table cellspacing="20">
     <tr>
-        <th rowspan="2"><img src="Consultants.png" alt="Consultants"></th>
+        <th rowspan="2"><img src="home_consultants.jpg" alt="Consultants"></th>
         <th></th>
         <th><a href="Consultants.html">Consultants</a> <br/><h5>Find some consultation to your idea</h5></th><br/>
         
     </tr>
 
 </table>
-<table class="team" >
+<table cellspacing="20" >
     <tr>
-        <th rowspan="2"><img src="team.jpeg" alt="Team Members"></th>
+        <th rowspan="2"><img src="home_team_members.jpg" alt="Team Members"></th>
         <th></th>
         <th><a href="Team members.html">Team Members</a> <br/><h5>Find team members to help you</h5></th><br/>
         
@@ -133,3 +139,4 @@
 </table>
 
 </body>
+</html>
