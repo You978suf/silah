@@ -1,0 +1,36 @@
+th{font-size:xx-large;}
+    h5{font-size:medium;}
+    body{background-color: rgb(196, 202, 212);}
+    h2{font-size: 60px;
+        padding: 20px;}
+    #image{opacity: 0.6;}
+    h1{padding-left: 20px;
+       padding-right: 20px;}
+       
+/* Bottom left text */
+    .text {
+      position: absolute;
+      bottom: 80px;
+      left: 16px;
+      color: black;
+      font-size: 40px;
+      text-align: center;
+      transform: translate(0%, 200%);
+    }
+
+/* Centered text */
+    .centered {
+      position: absolute;
+      font-size: 40px;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+    }
+
+.footer-container {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;}
