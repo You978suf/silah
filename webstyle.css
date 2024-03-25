@@ -3,7 +3,7 @@ th{font-size:xx-large;}
     body{background-color: rgb(196, 202, 212);}
     h2{font-size: 60px;
         padding: 20px;}
-    #image{opacity: 0.6;}
+    #image{opacity: 0.5;}
     h1{padding-left: 20px;
        padding-right: 20px;}
        
@@ -26,6 +26,7 @@ th{font-size:xx-large;}
       left: 50%;
       transform: translate(-50%, -50%);
       color: black;
+      
     }
 
 .footer-container {
