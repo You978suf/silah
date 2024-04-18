@@ -135,6 +135,15 @@
 </div>
 
 <script>
+
+    let image= document.getElementById("image");
+    let images=['home.jpeg','home.jpg','home1.jpg'];
+    setInterval(function(){
+        let random = Math.floor(Math.random() * images.length);
+        image.src=images[random];
+    },1500)
+
+
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
      "October", "November", "December"];
 
