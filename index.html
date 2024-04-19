@@ -47,11 +47,10 @@
                     <li class="nav-item"><a class="nav-link text-white" href="Consultants.html">Consultants</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="TeamMembers.html">Team Members</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="Investors.html">Investors</a></li>
-
                     <li class="nav-item"><a class="nav-link text-white" href="AboutUs.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="ContactUs.html">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="funpage.html">Fun time</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="calculation.html">calculation</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="calculation.html">Subscribe to Us!</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="login.html">Log In</a></li>
                 </ul>
             </nav>
@@ -135,6 +134,15 @@
 </div>
 
 <script>
+
+    let image= document.getElementById("image");
+    let images=['home.jpeg','home.jpg','home1.jpg'];
+    setInterval(function(){
+        let random = Math.floor(Math.random() * images.length);
+        image.src=images[random];
+    },1500)
+
+
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
      "October", "November", "December"];
 
