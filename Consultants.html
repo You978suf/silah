@@ -72,19 +72,10 @@
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h2 class="card-title">Sajed Mohammed</h2>
-                <h4 class="card-text">Feasibility study of the project</h4>
-                <p class="card-text">
-                    I am a graduate of Cambridge University with a degree in
-                    Commerce and Entrepreneurship. Over the past ten years, I have
-                    provided consultancy services to numerous startup companies. You
-                    can present your idea and the progress you've made on it, and we
-                    will conduct a comprehensive analysis of your project to assess its
-                    feasibility from economic, commercial, and technical perspectives,
-                    along with other pertinent details.<br>
-
-                    <strong>contact me via email: </strong> 
-                </p>
+                <h2 class="card-title" id="S1"></h2>
+                <h4 class="card-text" id="S2"></h4>
+                <p class="card-text" id="S3"><br></p>
+                <strong>contact me via email: </strong> <div id="S4" style="display: inline-block;"></div>  
             </div>
         </div>
     </div>
@@ -101,20 +92,10 @@
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h2 class="card-title">Salam Suleiman</h2>
-                <h4 class="card-text">Finance and capital consulting</h4>
-                <p class="card-text">
-                I am a graduate of the College of Economics at Sultan Qaboos
-                University. I work as the Head of the Financial Department at 'Our
-                Sky' company. I provide clients with necessary consultations in the
-                field of finance and capital management, as it is considered one of
-                the most critical aspects for startup companies, many of which have
-                failed due to poor financial management. Among the services I offer
-                are assessing the financial needs of the company, developing
-                business plans and fundraising strategies, as well as evaluating
-                investments and improving the company's financial structure.<br>
-                <strong>contact me via email: </strong> 
-                </p>
+                <h2 class="card-title" id="A1"></h2>
+                <h4 class="card-text" id="A2"></h4>
+                <p class="card-text" id="A3"><br></p>
+                <strong>contact me via email: </strong> <div id="A4" style="display: inline-block;"></div>  
             </div>
         </div>
     </div>
@@ -131,23 +112,44 @@
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h2 class="card-title">Stephen Curry</h2>
-                <h4 class="card-text">Marketing and trade consulting</h4>
-                <p class="card-text">
-                    I have a Bachelor's degree in Advertising and a Master's degree in
-                    Marketing. Marketing is crucial for startups in increasing their
-                    growth and reach. We will provide you with comprehensive market
-                    and audience analysis, and develop marketing and promotional
-                    strategies accordingly. Additionally, we will analyze data and
-                    reports to enhance customer experience and develop the brand.<br>
-                    <strong>contact me via email: </strong> 
-                </p>
+                <h2 class="card-title" id="T1"></h2>
+                <h4 class="card-text" id="T2"></h4>
+                <p class="card-text" id="T3"><br></p>
+                <strong>contact me via email: </strong> <div id="T4" style="display: inline-block;"></div>  
             </div>
         </div>
     </div>
     </div>
     <br/>
     </div>
+
+    <hr>
+    <h3 style="margin-left: 10px;">Search Shortcut</h3>
+    <h5 style="margin-left: 12px;">Here you can search about specific information of any consultant</h5> <br>
+    
+    <form method="post" style="margin-left: 10px;">
+        <div>
+            Select a team member: 
+                <select name="consultantM" id="consultantSelect">
+                    <option value="0">Sajed</option>
+                    <option value="1">Salam</option>
+                    <option value="2">Stephen</option>
+                </select>
+        
+        
+            Select the information:
+            <select name="information" id="infoSelect">
+                <option value="name">name</option>
+                <option value="Specialization">Specialization</option>
+                <option value="cv">cv</option>
+                <option value="email">email</option>
+            </select>
+        </div> <br>
+        
+        <input type="button" value="specific info" onclick="findInfo();"/>
+        <input type = "text"  size="70"  id = "infoOutput" onfocus = "this.blur();" />
+
+    </form>
 
     <footer style="background-color:steelblue">
         <div class="footer-container">
@@ -176,8 +178,108 @@
         </div>
     </div>
     </footer>
+
+    <script>
+        function consultant(name, Specialization, cv, email) {
+            this.name = name
+            this.Specialization = Specialization
+            this.cv = cv
+            this.email = email
+            function fullInfo() {
+                return "my name is "+this.name+". I will provide consultations in "+this.Specialization+". There are some additinal information about me"+this.cv
+            }
+        }
+
+        var Sajed = new consultant(
+            "Sajed Mohammed", "Feasibility study of the project",
+            "I am a graduate of Cambridge University with a degree in"+
+                "Commerce and Entrepreneurship. Over the past ten years, I have" +
+                "provided consultancy services to numerous startup companies. You" +
+                "can present your idea and the progress you've made on it, and we" +
+                "will conduct a comprehensive analysis of your project to assess its" +
+                    "feasibility from economic, commercial, and technical perspectives," +
+                "along with other pertinent details.", ""
+        )
+
+        var Salam = new consultant(
+            "Salam Suleiman", "Finance and capital consulting",
+            "I am a graduate of the College of Economics at Sultan Qaboos" +
+                "University. I work as the Head of the Financial Department at 'Our" +
+                "Sky' company. I provide clients with necessary consultations in the" +
+                "field of finance and capital management, as it is considered one of" +
+                "the most critical aspects for startup companies, many of which have" +
+                "failed due to poor financial management. Among the services I offer" +
+                "are assessing the financial needs of the company, developing" + 
+                "business plans and fundraising strategies, as well as evaluating" +
+                "investments and improving the company's financial structure.", ""
+        )
+
+        var Stephen = new consultant(
+            "Stephen Curry", "Marketing and trade consulting",
+            "I have a Bachelor's degree in Advertising and a Master's degree in" +
+                "Marketing. Marketing is crucial for startups in increasing their" +
+                "growth and reach. We will provide you with comprehensive market" +
+                "and audience analysis, and develop marketing and promotional" +
+                "strategies accordingly. Additionally, we will analyze data and" +
+                "reports to enhance customer experience and develop the brand.", ""
+        )
+
+        const consultantList = new Array(Sajed, Salam, Stephen)
+
+        function displayInfo(Id, indx, infoType) {
+            let consultantMember = consultantList[indx];
+
+            let info = '';
+            if (infoType == 'name') {
+                info = consultantMember.name;
+            } else if (infoType == 'Specialization') {
+                info = consultantMember.Specialization;
+            } else if (infoType == 'cv') {
+                info = consultantMember.cv;
+            } else if (infoType == 'email') {
+                info = consultantMember.email;
+            }
+
+            document.getElementById(Id).innerHTML = info;
+        }
+
+        displayInfo("S1", 0, "name")
+        displayInfo("S2", 0, "Specialization")
+        displayInfo("S3", 0, "cv")
+        displayInfo("S4", 0, "email")
+
+        displayInfo("A1", 1, "name")
+        displayInfo("A2", 1, "Specialization")
+        displayInfo("A3", 1, "cv")
+        displayInfo("A4", 1, "email")
+
+
+        displayInfo("T1", 2, "name")
+        displayInfo("T2", 2, "Specialization")
+        displayInfo("T3", 2, "cv")
+        displayInfo("T4", 2, "email")
+
+        function findInfo() {
+        const teamMemberIndex = document.getElementById('consultantSelect').value;
+        const infoType = document.getElementById('infoSelect').value;
+
+        const teamMember = consultantList[teamMemberIndex];
+
+        var info = '';
+        if (infoType == 'name') {
+            info = teamMember.name;
+        } else if (infoType == 'Specialization') {
+            info = teamMember.Specialization;
+        } else if (infoType == 'cv') {
+            info = teamMember.cv;
+        } else if (infoType == 'email') {
+            info = teamMember.email;
+        }
+
+        document.getElementById('infoOutput').value = info;
+    }
+
+    </script>
     
-
-
 </body>
 </html>
