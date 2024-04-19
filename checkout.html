@@ -42,13 +42,21 @@
                 <div id="selectedPrice" class="planPrice"></div>
 
                 <button id="pay">Pay now</button>
-                <button id="recieveDis" onclick="displayDiscountProblem">Get Discount</button>
+                <button id="recieveDis" onclick="displayDiscountProblem()">Get Discount</button>
             </div>
         </div>
     </div>
+    <div class="modal" id="discountModal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="mathQuestionImage" src="question.jpg" alt="Math Question" style="width:100%;">
+            <input type="text" id="answerInput" placeholder="Enter your answer">
+            <button onclick="submitAnswer()">Submit</button>
+        </div>
+    </div>    
     <script>
         const selectedPlan = sessionStorage.getItem('selectedPlan');
-        const selectedPrice = parseFloat(sessionStorage.getItem('selectedPrice'));
+        var selectedPrice = parseFloat(sessionStorage.getItem('selectedPrice'));
 
         document.getElementById('selectedPlan').textContent = 'Selected Plan: ' + selectedPlan;
         document.getElementById('selectedPrice').textContent = 'Price: $' + selectedPrice.toFixed(2);
