@@ -78,54 +78,64 @@
     </form></div>
 
     <script>
+        // This function validates the input from a registration form before submitting
         function ValidationForm() {
+            // Retrieve form elements by their names
             let name = document.forms["RegForm"]["Name"];
             let email = document.forms["RegForm"]["Email"];
             let phoneNumber = document.forms["RegForm"]["PhoneNumber"];
             let select = document.forms["RegForm"]["helpType"];
             let message = document.forms["RegForm"]["Message"];
-
-            if(name.value.length < 5){
-                alert("please enter you full name!")
-                name.focus();
-                return false;
+    
+            // Check if the name is less than 5 characters
+            if (name.value.length < 5) {
+                alert("Please enter your full name!");
+                name.focus();  // Focus the cursor on the name input for correction
+                return false;  // Stop the form submission
             }
-            if(email.value == ""){
-                alert("Please provide an Email address.")
-                email.focus();
-                return false;
+    
+            // Check if the email is empty
+            if (email.value == "") {
+                alert("Please provide an Email address.");
+                email.focus();  // Focus the cursor on the email input for correction
+                return false;  // Stop the form submission
             }
-            if(email.value.indexOf("@") == -1 || email.value.lastIndexOf(".") == -1){
-                alert( "Please provide a valid Email address!");
-                email.focus();
-                return false;
+    
+            // Check if the email address format is incorrect
+            if (email.value.indexOf("@") == -1 || email.value.lastIndexOf(".") == -1) {
+                alert("Please provide a valid Email address!");
+                email.focus();  // Focus the cursor on the email input for correction
+                return false;  // Stop the form submission
             }
-            if (phoneNumber.value.length != 8 ) {
-                alert( "Your Phone number must be 8 digits and strting by 9 or 7");
-                phoneNumber.focus();
-                return false;
+    
+            // Check if the phone number is not 8 digits
+            if (phoneNumber.value.length != 8) {
+                alert("Your Phone number must be 8 digits and starting by 9 or 7");
+                phoneNumber.focus();  // Focus the cursor on the phone number input for correction
+                return false;  // Stop the form submission
             }
-
-
+    
+            // Check if any 'helpType' radio button is selected
             let isSelected = false;
-        for (let i = 0; i < select.length; i++) {
-            if (select[i].checked) {
-                isSelected = true;
-                break;
+            for (let i = 0; i < select.length; i++) {
+                if (select[i].checked) {
+                    isSelected = true;  // Set to true if any radio button is selected
+                    break;
+                }
             }
-        }
-        if (!isSelected) {
-            alert("Please select the help type.");
-            return false;
-        }
-
-
-            if(message.value == "" ) {
+            if (!isSelected) {
+                alert("Please select the help type.");  // Alert if no radio button is selected
+                return false;  // Stop the form submission
+            }
+    
+            // Check if the message textarea is empty
+            if (message.value == "") {
                 alert("Please write something.");
-                message.focus();
-                return false;
+                message.focus();  // Focus the cursor on the message textarea for correction
+                return false;  // Stop the form submission
             }
-            return true}
+        }   
+           
     </script>
 
 

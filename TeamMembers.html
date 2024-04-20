@@ -174,38 +174,45 @@
     </footer>
 
     <script>
+        // Constructor function for creating team member objects with properties like name, education, skills, and additional information.
         function teamMember(name, education, skills, informations) {
-            this.name = name
-            this.education = education
-            this.skills = skills
-            this.informations = informations
-            function fullInfo() {
-                return "my name is "+this.name+". The most powerfull skill that I have is "+this.skills+". There are some additinal information about me"+this.informations
-            }
+            this.name = name;
+            this.education = education;
+            this.skills = skills;
+            this.informations = informations;
         }
-
+    
+        // Creating team member objects with predefined information.
         var yousuf = new teamMember(
-            "Yousuf alshaaili", "Sultan Qaboos University", "Marketing",
-            "I am a student at Sultan Qaboos University. I have some skills in marketing and I got some certificates in that skill. Now, I am interested in joining a startup to help them with that skill as well as applying my skills in real life."
-            
-        )
+            "Yousuf alshaaili", 
+            "Sultan Qaboos University", 
+            "Marketing",
+            "I am a student at Sultan Qaboos University with skills in marketing..."
+        );
         
         var ibrahim  = new teamMember(
-            "Ibrahim Altoubi", "SQU", "programming",
-            "I am a student at Sultan Qaboos University. I have some skills in programming and I got some certificates in that skill. Now, I am interested in joining a startup to help them with that skill as well as applying my skills in real life."
-        )
-
+            "Ibrahim Altoubi", 
+            "SQU", 
+            "programming",
+            "I am a student at Sultan Qaboos University with skills in programming..."
+        );
+    
         var qusay   = new teamMember(
-            "Qusay Alshueili", "SQU", "leadership",
-            "I am a student at SQU. I have some skills in leadership and I got some certificates in that skill. Now, I am interested in joining a startup to help them with that skill as well as applying my skills in real life."
-        )
-
-        const teamList = new Array(yousuf, ibrahim, qusay)
-
+            "Qusay Alshueili", 
+            "SQU", 
+            "leadership",
+            "I am a student at SQU with skills in leadership..."
+        );
+    
+        // Array to store team member objects for easier management and access.
+        const teamList = new Array(yousuf, ibrahim, qusay);
+    
+        // Function to display specific information about team members in the HTML based on their index in the teamList and the type of information requested.
         function displayInfo(Id, indx, infoType) {
             let teamMember = teamList[indx];
-
             let info = '';
+            
+            // Selects the information type to display based on the parameter infoType.
             if (infoType === 'name') {
                 info = teamMember.name;
             } else if (infoType === 'education') {
@@ -215,46 +222,51 @@
             } else if (infoType === 'informations') {
                 info = teamMember.informations;
             }
-
+    
+            // Updates the HTML content of the element with the specified Id to show the selected information.
             document.getElementById(Id).innerHTML = info;
         }
-
-        displayInfo("Y1", 0, "name")
-        displayInfo("Y2", 0, "education")
-        displayInfo("Y3", 0, "skills")
-        displayInfo("Y4", 0, "informations")
-
-        displayInfo("I1", 1, "name")
-        displayInfo("I2", 1, "education")
-        displayInfo("I3", 1, "skills")
-        displayInfo("I4", 1, "informations")
-
-        displayInfo("Q1", 2, "name")
-        displayInfo("Q2", 2, "education")
-        displayInfo("Q3", 2, "skills")
-        displayInfo("Q4", 2, "informations")
-
+    
+        // Initial calls to display specific information about all team members on page load.
+        displayInfo("Y1", 0, "name");
+        displayInfo("Y2", 0, "education");
+        displayInfo("Y3", 0, "skills");
+        displayInfo("Y4", 0, "informations");
+    
+        displayInfo("I1", 1, "name");
+        displayInfo("I2", 1, "education");
+        displayInfo("I3", 1, "skills");
+        displayInfo("I4", 1, "informations");
+    
+        displayInfo("Q1", 2, "name");
+        displayInfo("Q2", 2, "education");
+        displayInfo("Q3", 2, "skills");
+        displayInfo("Q4", 2, "informations");
+    
+        // Function to find and display specific information about a selected team member based on user selections from dropdown menus.
         function findInfo() {
-        const teamMemberIndex = document.getElementById('teamMemberSelect').value;
-        const infoType = document.getElementById('infoSelect').value;
-
-        const teamMember = teamList[teamMemberIndex];
-
-        var info = '';
-        if (infoType == 'name') {
-            info = teamMember.name;
-        } else if (infoType == 'education') {
-            info = teamMember.education;
-        } else if (infoType == 'skills') {
-            info = teamMember.skills;
-        } else if (infoType == 'informations') {
-            info = teamMember.informations;
+            const teamMemberIndex = document.getElementById('teamMemberSelect').value; // Gets the index of the selected team member from the dropdown.
+            const infoType = document.getElementById('infoSelect').value; // Gets the type of information requested from the dropdown.
+    
+            const teamMember = teamList[teamMemberIndex]; // Accesses the team member object from the teamList array using the selected index.
+    
+            var info = '';
+            // Determines what information to display based on the selected infoType.
+            if (infoType == 'name') {
+                info = teamMember.name;
+            } else if (infoType == 'education') {
+                info = teamMember.education;
+            } else if (infoType == 'skills') {
+                info = teamMember.skills;
+            } else if (infoType == 'informations') {
+                info = teamMember.informations;
+            }
+    
+            // Sets the value of the 'infoOutput' text input to display the selected information.
+            document.getElementById('infoOutput').value = info;
         }
-
-        document.getElementById('infoOutput').value = info;
-    }
-
     </script>
+    
     
 </body>
 </html>
