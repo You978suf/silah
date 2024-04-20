@@ -1,0 +1,195 @@
+<html xmlns = ″http://www.w3.org/1999/xhtml″>
+
+<head>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title> Fun Page </title>
+    
+
+    <style>
+        @import url("webstyle.css");
+        a{color:black}
+
+        /*ؤenter the game in the middle of the page*/
+        #game-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game {
+            text-align: center;
+        }
+
+        /*buttons style */
+        .word-button {
+            display: none; 
+            padding: 10px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /*sentence buttons style*/
+        .sentence-button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+       
+    </style>
+</head>
+<body>
+    
+    <header>
+
+        <div class="container-fluid" style="background-color:steelblue">
+            <nav class="navbar navbar-expand-sm navbar-dark"> 
+                <a class="navbar-brand" href="index.html" style="font-size:x-large; margin-right: 20px;">
+                    <img src="logo.png" alt="Logo" class="d-inline-block align-text-top" style="margin-right: 20px;">SILAH</a>
+                <ul class="navbar-nav" style="text-align: end;">
+                    
+                    <li class="nav-item"><a class="nav-link text-white " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Consultants.html">Consultants</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="TeamMembers.html">Team Members</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Investors.html">Investors</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="AboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="ContactUs.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white active bg-secondary" href="funpage.html">Fun time</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="calculation.html">Subscribe to Us!</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="login.html">Log In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="game-container">
+        <div id="game">
+            <h1 style="margin: 5px; font-size: 70px; font-family: 'Courier New', Courier, monospace;">Word Gathering Game</h1>
+            <h4>Select a sentence:</h4>
+            <h4>Hint: The sentences are related to our website</h4>
+            <!--initial sentence buttons-->
+            <button class="sentence-button" onclick="showSentence('start')">Sentence 1</button>
+            <button class="sentence-button" onclick="showSentence('keep')">Sentence 2</button>
+            <button class="sentence-button" onclick="showSentence('meeting')">Sentence 3</button>
+
+            <!-- Word buttons -->
+            <div id="word-buttons">
+                <!--word buttons will appear here -->
+            </div>
+
+            <!--check Sentence button -->
+            <button style="padding: 2px;" onclick="checkSentence()">Check Sentence</button>
+
+            <!--clear button -->
+            <button id="clear-button" style="padding: 2px;" onclick="clearSentence()">Clear</button>
+
+            <!--texy box to display current sentence -->
+            <input type="text" id="sentenceOutput" size="50" readonly>
+        </div>
+    </div> <br/><br/>
+
+    <footer style="background-color:steelblue">
+        <div class="footer-container">
+            <div class="logo-social">
+            <h3>Follow us</h3>
+            <div class="social-links" >
+                <a href="https://twitter.com/"><img src="x.jpg" width="40px"></a>
+                <a href="https://www.instagram.com/"><img src="instagram.png" width="40px"></a>
+                <a href="https://www.youtube.com/"><img src="youtube.png"  width="40px"></a>
+            </div>
+        </div>
+        <div class="Quick links">
+            <h3>Quick Links</h3>
+            <ul style="list-style-type: circle;">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="Consultants.html">Consultants</a></li>
+                <li><a href="TeamMembers.html">Team Members</a></li>
+                <li><a href="Investors.html">Investors</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="contact info">
+            <h3>Contact Info</h3>
+            <p>Email: <a href="mailto: s137312@student.squ.edu.om">contact@Silah.com</a></p>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+        //array of words for each sentence to display it later
+        var sentences = {
+            start: [ "BUILD", "START","GROW"],
+            keep: [ "make",  "calm", "and", "Keep", "money"],
+            meeting: ["Masterminds:", "Meeting", "Achieve",  "of",  "Invest,", "Point","Advise,"]
+        };
+        //array to store selected words
+        var selectedWords = [];
+
+        //function to display different word buttons for the selected sentence
+        function showSentence(sentenceKey) {
+            var sentenceWords = sentences[sentenceKey];
+            var wordButtons = document.getElementById("word-buttons");
+            wordButtons.innerHTML = ""; // Clear previous buttons
+
+            //create buttons for each word using loop
+            for (var i = 0; i < sentenceWords.length; i++) {
+                var button = document.createElement("button");
+                button.className = "word-button";
+                button.textContent = sentenceWords[i];
+                button.setAttribute("onclick", "addWordToSentence('" + sentenceWords[i] + "')");
+                button.style.display = "inline-block"; //to show the button
+                wordButtons.appendChild(button);
+            }
+        }
+
+        //function to add word to the sentence
+        function addWordToSentence(word) {
+            selectedWords.push(word);
+            updateSentence(); //update the displayed sentence
+        }
+
+        //function to update the displayed sentence
+        function updateSentence() {
+            var sentenceOutput = document.getElementById("sentenceOutput");
+            sentenceOutput.value = selectedWords.join(" ") + "."; //construct the sentence with spaces and . in the end
+        }
+
+        //function to check if sentence is correct
+        function checkSentence() {
+            var sentence = selectedWords.join(" ") + "."; //construct the sentence with spaces and . in the end
+            if (sentence === "START BUILD GROW." || 
+                sentence === "Keep calm and make money." || 
+                sentence === "Meeting Point of Masterminds: Invest, Advise, Achieve.") {
+                alert("Correct sentence!");
+            } else {
+                alert("Incorrect sentence. Try again!");
+            }
+        }
+
+         //function to clear the sentence and selected words
+        function clearSentence() {
+            selectedWords = []; //clear selected words
+            document.getElementById('sentenceOutput').value = ''; //clear current sentence
+        } 
+    </script>
+
+
+</body>
+</html>

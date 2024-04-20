@@ -45,6 +45,7 @@
                     <li class="nav-item"><a class="nav-link text-white" href="Investors.html">Investors</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="AboutUs.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="ContactUs.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="funpage.html">Fun time</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="calculation.html">Subscribe to Us!</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="login.html">Log In</a></li>
                 </ul>
@@ -151,6 +152,7 @@
         <input type = "text"  size="70"  id = "infoOutput" onfocus = "this.blur();" />
 
     </form>
+    <br>
 
     <footer style="background-color:steelblue">
         <div class="footer-container">
@@ -181,16 +183,19 @@
     </footer>
 
     <script>
+        //constructor function for creating consultant objects
         function consultant(name, Specialization, cv, email) {
             this.name = name
             this.Specialization = Specialization
             this.cv = cv
             this.email = email
+            //method to get full information about the consultant
             function fullInfo() {
                 return "my name is "+this.name+". I will provide consultations in "+this.Specialization+". There are some additinal information about me"+this.cv
             }
         }
 
+        //creating 3 consultant objects
         var Sajed = new consultant(
             "Sajed Mohammed", "Feasibility study of the project",
             "I am a graduate of Cambridge University with a degree in"+
@@ -198,7 +203,7 @@
                 "provided consultancy services to numerous startup companies. You" +
                 "can present your idea and the progress you've made on it, and we" +
                 "will conduct a comprehensive analysis of your project to assess its" +
-                    "feasibility from economic, commercial, and technical perspectives," +
+                "feasibility from economic, commercial, and technical perspectives," +
                 "along with other pertinent details.", ""
         )
 
@@ -225,12 +230,15 @@
                 "reports to enhance customer experience and develop the brand.", ""
         )
 
+        //array to store consultant objects
         const consultantList = new Array(Sajed, Salam, Stephen)
 
+        //function to display specific information about a consultant
         function displayInfo(Id, indx, infoType) {
             let consultantMember = consultantList[indx];
 
             let info = '';
+            //determine which information to display
             if (infoType == 'name') {
                 info = consultantMember.name;
             } else if (infoType == 'Specialization') {
@@ -241,9 +249,11 @@
                 info = consultantMember.email;
             }
 
+            //display the information
             document.getElementById(Id).innerHTML = info;
         }
 
+        //display initial information for each consultant
         displayInfo("S1", 0, "name")
         displayInfo("S2", 0, "Specialization")
         displayInfo("S3", 0, "cv")
@@ -254,32 +264,33 @@
         displayInfo("A3", 1, "cv")
         displayInfo("A4", 1, "email")
 
-
         displayInfo("T1", 2, "name")
         displayInfo("T2", 2, "Specialization")
         displayInfo("T3", 2, "cv")
         displayInfo("T4", 2, "email")
 
+        //function to find specific information about a consultant
         function findInfo() {
-        const teamMemberIndex = document.getElementById('consultantSelect').value;
-        const infoType = document.getElementById('infoSelect').value;
+            const teamMemberIndex = document.getElementById('consultantSelect').value;
+            const infoType = document.getElementById('infoSelect').value;
 
-        const teamMember = consultantList[teamMemberIndex];
+            const teamMember = consultantList[teamMemberIndex];
 
-        var info = '';
-        if (infoType == 'name') {
-            info = teamMember.name;
-        } else if (infoType == 'Specialization') {
-            info = teamMember.Specialization;
-        } else if (infoType == 'cv') {
-            info = teamMember.cv;
-        } else if (infoType == 'email') {
-            info = teamMember.email;
+            var info = '';
+            //determine which information to display
+            if (infoType == 'name') {
+                info = teamMember.name;
+            } else if (infoType == 'Specialization') {
+                info = teamMember.Specialization;
+            } else if (infoType == 'cv') {
+                info = teamMember.cv;
+            } else if (infoType == 'email') {
+                info = teamMember.email;
+            }
+
+            //display the information
+            document.getElementById('infoOutput').value = info;
         }
-
-        document.getElementById('infoOutput').value = info;
-    }
-
     </script>
     
 </body>
