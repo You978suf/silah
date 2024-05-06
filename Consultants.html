@@ -150,7 +150,7 @@
         
         <input type="button" value="specific info" onclick="findInfo();"/>
         <input type = "text"  size="70"  id = "infoOutput" onfocus = "this.blur();" />
-            
+
     </form>
     <br>
 
@@ -181,64 +181,43 @@
         </div>
     </div>
     </footer>
-
     <script>
-        //constructor function for creating consultant objects
+        // Defines a constructor function for creating consultant objects with methods for accessing information.
         function consultant(name, Specialization, cv, email) {
-            this.name = name
-            this.Specialization = Specialization
-            this.cv = cv
-            this.email = email
-            //method to get full information about the consultant
-            function fullInfo() {
-                return "my name is "+this.name+". I will provide consultations in "+this.Specialization+". There are some additinal information about me"+this.cv
-            }
+            this.name = name;  // Consultant's name
+            this.Specialization = Specialization;  // Consultant's area of specialization
+            this.cv = cv;  // Consultant's curriculum vitae or background details
+            this.email = email;  // Consultant's email address
         }
-
-        //creating 3 consultant objects
+    
+        // Create consultant objects with detailed information about each.
         var Sajed = new consultant(
             "Sajed Mohammed", "Feasibility study of the project",
-            "I am a graduate of Cambridge University with a degree in"+
-                "Commerce and Entrepreneurship. Over the past ten years, I have" +
-                "provided consultancy services to numerous startup companies. You" +
-                "can present your idea and the progress you've made on it, and we" +
-                "will conduct a comprehensive analysis of your project to assess its" +
-                "feasibility from economic, commercial, and technical perspectives," +
-                "along with other pertinent details.", "sajedmo@business.com"
-        )
-
+            "I am a graduate of Cambridge University with a degree in Commerce and Entrepreneurship... ", 
+            ""
+        );
+    
         var Salam = new consultant(
             "Salam Suleiman", "Finance and capital consulting",
-            "I am a graduate of the College of Economics at Sultan Qaboos" +
-                "University. I work as the Head of the Financial Department at 'Our" +
-                "Sky' company. I provide clients with necessary consultations in the" +
-                "field of finance and capital management, as it is considered one of" +
-                "the most critical aspects for startup companies, many of which have" +
-                "failed due to poor financial management. Among the services I offer" +
-                "are assessing the financial needs of the company, developing" + 
-                "business plans and fundraising strategies, as well as evaluating" +
-                "investments and improving the company's financial structure.", "salimsu@business.com"
-        )
-
+            "I am a graduate of the College of Economics at Sultan Qaboos University... ", 
+            ""
+        );
+    
         var Stephen = new consultant(
             "Stephen Curry", "Marketing and trade consulting",
-            "I have a Bachelor's degree in Advertising and a Master's degree in" +
-                "Marketing. Marketing is crucial for startups in increasing their" +
-                "growth and reach. We will provide you with comprehensive market" +
-                "and audience analysis, and develop marketing and promotional" +
-                "strategies accordingly. Additionally, we will analyze data and" +
-                "reports to enhance customer experience and develop the brand.", "stephencu@business.com"
-        )
-
-        //array to store consultant objects
-        const consultantList = new Array(Sajed, Salam, Stephen)
-
-        //function to display specific information about a consultant
+            "I have a Bachelor's degree in Advertising and a Master's degree in Marketing... ", 
+            ""
+        );
+    
+        // Array to store the consultant objects.
+        const consultantList = new Array(Sajed, Salam, Stephen);
+    
+        // Function to display specific information about a consultant on the webpage.
         function displayInfo(Id, indx, infoType) {
-            let consultantMember = consultantList[indx];
-
-            let info = '';
-            //determine which information to display
+            let consultantMember = consultantList[indx];  // Access the specific consultant object from the array.
+            let info = '';  // Initialize a variable to store the information to be displayed.
+    
+            // Decide which information to display based on the infoType argument.
             if (infoType == 'name') {
                 info = consultantMember.name;
             } else if (infoType == 'Specialization') {
@@ -248,36 +227,36 @@
             } else if (infoType == 'email') {
                 info = consultantMember.email;
             }
-
-            //display the information
+    
+            // Set the HTML content of the element with the specified Id to display the information.
             document.getElementById(Id).innerHTML = info;
         }
-
-        //display initial information for each consultant
-        displayInfo("S1", 0, "name")
-        displayInfo("S2", 0, "Specialization")
-        displayInfo("S3", 0, "cv")
-        displayInfo("S4", 0, "email")
-
-        displayInfo("A1", 1, "name")
-        displayInfo("A2", 1, "Specialization")
-        displayInfo("A3", 1, "cv")
-        displayInfo("A4", 1, "email")
-
-        displayInfo("T1", 2, "name")
-        displayInfo("T2", 2, "Specialization")
-        displayInfo("T3", 2, "cv")
-        displayInfo("T4", 2, "email")
-
-        //function to find specific information about a consultant
+    
+        // Display initial information for each consultant by calling the displayInfo function.
+        displayInfo("S1", 0, "name");
+        displayInfo("S2", 0, "Specialization");
+        displayInfo("S3", 0, "cv");
+        displayInfo("S4", 0, "email");
+    
+        displayInfo("A1", 1, "name");
+        displayInfo("A2", 1, "Specialization");
+        displayInfo("A3", 1, "cv");
+        displayInfo("A4", 1, "email");
+    
+        displayInfo("T1", 2, "name");
+        displayInfo("T2", 2, "Specialization");
+        displayInfo("T3", 2, "cv");
+        displayInfo("T4", 2, "email");
+    
+        // Function to find and display specific information about a consultant based on user selection from dropdown menus.
         function findInfo() {
-            const teamMemberIndex = document.getElementById('consultantSelect').value;
-            const infoType = document.getElementById('infoSelect').value;
-
-            const teamMember = consultantList[teamMemberIndex];
-
-            var info = '';
-            //determine which information to display
+            const teamMemberIndex = document.getElementById('consultantSelect').value;  // Get the index of the selected consultant.
+            const infoType = document.getElementById('infoSelect').value;  // Get the type of information to be displayed.
+    
+            const teamMember = consultantList[teamMemberIndex];  // Access the selected consultant object.
+    
+            var info = '';  // Initialize a variable to store the information to be displayed.
+            // Decide which information to display based on the infoType argument.
             if (infoType == 'name') {
                 info = teamMember.name;
             } else if (infoType == 'Specialization') {
@@ -287,11 +266,10 @@
             } else if (infoType == 'email') {
                 info = teamMember.email;
             }
-
-            //display the information
+    
+            // Set the value of the input field 'infoOutput' to display the information.
             document.getElementById('infoOutput').value = info;
         }
-    </script>
-    
+    </script>    
 </body>
 </html>

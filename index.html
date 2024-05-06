@@ -135,34 +135,44 @@
 </div>
 
 <script>
+    // Select the image element from the DOM.
+    let image = document.getElementById("image");
+    // Array containing the paths of images to be displayed.
+    let images = ['home.jpeg', 'home.jpg', 'home1.jpg'];
 
-    let image= document.getElementById("image");
-    let images=['home.jpeg','home.jpg','home1.jpg'];
-    setInterval(function(){
+    // Set an interval to change the image source every 1500 milliseconds (1.5 seconds).
+    setInterval(function() {
+        // Generate a random index based on the number of images in the array.
         let random = Math.floor(Math.random() * images.length);
-        image.src=images[random];
-    },1500)
+        // Change the src attribute of the image element to a new image based on the random index.
+        image.src = images[random];
+    }, 1500);
 
-
+    // Array containing the names of the months for date display.
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
-     "October", "November", "December"];
+                    "October", "November", "December"];
 
-    function updateDateTime(){
-
-      
+    // Function to update the date and time on the webpage.
+    function updateDateTime() {
+        // Create a new Date object representing the current date and time.
         const now = new Date();
-        var year = now.getDate()+"-"+( months[now.getMonth()])+"-"+now.getFullYear();
-        var time = now.getHours()+":"+now.getMinutes() +":"+ now.getSeconds();
+        // Format the date as Day-Month-Year, using the month names array for readability.
+        var year = now.getDate() + "-" + (months[now.getMonth()]) + "-" + now.getFullYear();
+        // Format the time as Hour:Minute:Second.
+        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
         
-        document.getElementById("current-time").innerHTML=time;
-        document.getElementById("current-date").innerHTML= year;
+        // Set the innerHTML of elements with IDs 'current-time' and 'current-date' to display the time and date.
+        document.getElementById("current-time").innerHTML = time;
+        document.getElementById("current-date").innerHTML = year;
+    }
 
-    } 
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-
+    // Call updateDateTime immediately to set the initial date and time.
+    updateDateTime();
+    // Set an interval to update the date and time every 1000 milliseconds (1 second).
+    setInterval(updateDateTime, 1000);
 
 </script>
+
 
 </body>
 </html>

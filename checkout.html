@@ -56,12 +56,14 @@
         </div>
     </div>    
     <script>
-        const selectedPlan = sessionStorage.getItem('selectedPlan');
-        var selectedPrice = parseFloat(sessionStorage.getItem('selectedPrice'));
-
-        document.getElementById('selectedPlan').textContent = 'Selected Plan: ' + selectedPlan;
-        document.getElementById('selectedPrice').textContent = 'Price: $' + selectedPrice.toFixed(2);
-    </script>
+        // Retrieve the plan name and price from sessionStorage, where they were stored on a previous page
+        const selectedPlan = sessionStorage.getItem('selectedPlan'); // Retrieve the name of the selected plan
+        var selectedPrice = parseFloat(sessionStorage.getItem('selectedPrice')); // Retrieve the price of the selected plan and convert it to a number
+    
+        // Display the retrieved plan name and price in the designated HTML elements
+        document.getElementById('selectedPlan').textContent = 'Selected Plan: ' + selectedPlan; // Set the text content of the 'selectedPlan' element to show the plan name
+        document.getElementById('selectedPrice').textContent = 'Price: $' + selectedPrice.toFixed(2); // Set the text content of the 'selectedPrice' element to show the price formatted to two decimal places
+    </script>    
     <script src="planRetrieve.js"></script>
 </body>
 

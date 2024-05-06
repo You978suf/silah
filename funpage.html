@@ -133,62 +133,64 @@
     </footer>
 
     <script>
-        //array of words for each sentence to display it later
+        // An object containing arrays of words for each sentence, identified by keys
         var sentences = {
-            start: [ "BUILD", "START","GROW"],
-            keep: [ "make",  "calm", "and", "Keep", "money"],
-            meeting: ["Masterminds:", "Meeting", "Achieve",  "of",  "Invest,", "Point","Advise,"]
+            start: ["BUILD", "START", "GROW"],
+            keep: ["make", "calm", "and", "Keep", "money"],
+            meeting: ["Masterminds:", "Meeting", "Achieve", "of", "Invest,", "Point", "Advise,"]
         };
-        //array to store selected words
+    
+        // An empty array to store words selected by the user
         var selectedWords = [];
-
-        //function to display different word buttons for the selected sentence
+    
+        // Displays word buttons based on the selected sentence
         function showSentence(sentenceKey) {
-            var sentenceWords = sentences[sentenceKey];
+            var sentenceWords = sentences[sentenceKey]; // Get words for the selected key
             var wordButtons = document.getElementById("word-buttons");
-            wordButtons.innerHTML = ""; // Clear previous buttons
-
-            //create buttons for each word using loop
-            for (var i = 0; i < sentenceWords.length; i++) {
+            wordButtons.innerHTML = ""; // Clear previous word buttons
+    
+            // Create a button for each word in the sentence
+            sentenceWords.forEach(word => {
                 var button = document.createElement("button");
-                button.className = "word-button";
-                button.textContent = sentenceWords[i];
-                button.setAttribute("onclick", "addWordToSentence('" + sentenceWords[i] + "')");
-                button.style.display = "inline-block"; //to show the button
-                wordButtons.appendChild(button);
-            }
+                button.className = "word-button"; // Assigns class for styling
+                button.textContent = word; // Set text content to the word
+                button.setAttribute("onclick", "addWordToSentence('" + word + "')"); // Adds onclick event
+                button.style.display = "inline-block"; // Ensures the button is visible
+                wordButtons.appendChild(button); // Adds the button to the container
+            });
         }
-
-        //function to add word to the sentence
+    
+        // Adds the clicked word to the current sentence assembly
         function addWordToSentence(word) {
-            selectedWords.push(word);
-            updateSentence(); //update the displayed sentence
+            selectedWords.push(word); // Add word to the array
+            updateSentence(); // Update the display of the current sentence
         }
-
-        //function to update the displayed sentence
+    
+        // Updates the input field to show the current sentence
         function updateSentence() {
             var sentenceOutput = document.getElementById("sentenceOutput");
-            sentenceOutput.value = selectedWords.join(" ") + "."; //construct the sentence with spaces and . in the end
+            sentenceOutput.value = selectedWords.join(" ") + "."; // Creates a sentence from the array
         }
-
-        //function to check if sentence is correct
+    
+        // Checks if the constructed sentence matches any of the correct sentences
         function checkSentence() {
-            var sentence = selectedWords.join(" ") + "."; //construct the sentence with spaces and . in the end
+            var sentence = selectedWords.join(" ") + ".";
             if (sentence === "START BUILD GROW." || 
                 sentence === "Keep calm and make money." || 
                 sentence === "Meeting Point of Masterminds: Invest, Advise, Achieve.") {
-                alert("Correct sentence!");
+                alert("Correct sentence!"); // Notifies the user if the sentence is correct
             } else {
-                alert("Incorrect sentence. Try again!");
+                alert("Incorrect sentence. Try again!"); // Notifies the user if the sentence is incorrect
             }
         }
-
-         //function to clear the sentence and selected words
+    
+        // Clears the current sentence and the array of selected words
         function clearSentence() {
-            selectedWords = []; //clear selected words
-            document.getElementById('sentenceOutput').value = ''; //clear current sentence
-        } 
+            selectedWords = []; // Clear the array
+            document.getElementById('sentenceOutput').value = ''; // Clear the display in the input field
+        }
     </script>
+    
 
 
 </body>
