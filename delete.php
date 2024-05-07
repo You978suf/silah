@@ -4,37 +4,32 @@ $user = "root";
 $pass = "";
 $dbname = "silah";
 
-
+// Create connection
 $conn = new mysqli($sname, $user, $pass, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Using prepared statements to avoid SQL injection
+$stmt = $conn->prepare("DELETE FROM submissions WHERE name = ?");
+$stmt->bind_param("s", $contactName);
 
 $contactName = $_POST["contactName"];
 
-
-$sql = "DELETE FROM submissions WHERE name = '$contactName'";
-
-$result = mysqli_query($conn, $sql);
-
-
-if (mysqli_num_rows($result) > 0) {
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<table border='1'>";
-        echo "<tr><td>Name:</td><td>{$row['name']}</td></tr>";
-        echo "<tr><td>Email:</td><td>{$row['email']}</td></tr>";
-        echo "<tr><td>Phone Number:</td><td>{$row['phonenumber']}</td></tr>";
-        echo "<tr><td>Help Type:</td><td>{$row['helptype']}</td></tr>";
-        echo "<tr><td>Message:</td><td>{$row['message']}</td></tr>";
-        echo "</table> \n";
-        echo "Deleted successufuly"
+// Execute the query
+if ($stmt->execute()) {
+    // Check if any row was actually deleted
+    if ($stmt->affected_rows > 0) {
+        echo "Deleted successfully";
+    } else {
+        echo "There is no previous contact with this name";
     }
 } else {
-    echo "There is no previous contact with this name";
+    echo "Error deleting record: " . $conn->error;
 }
 
-mysqli_close($conn);
+$stmt->close();
+$conn->close();
 ?>
