@@ -1,44 +1,36 @@
 <?php
-// Database connection setup
-$host = 'localhost';  // or your host
-$dbname = 'silah';    // your database name
-$username = 'root';   // your database username
-$password = '';       // your database password
-
-$options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-];
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, $options);
-} catch (PDOException $e) {
-    die("Could not connect to the database $dbname :" . $e->getMessage());
+//database connection setup
+$host = 'localhost';  
+$dbname = 'silah';    
+$username = 'root';  
+$password = '';      
+//create a new connection
+$conn = new mysqli($host, $username, $password, $dbname);
+//check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//SQL statement to insert data into the 'submissions' table
+$sql = "INSERT INTO submissions (name, email, phonenumber, helptype, message) VALUES (?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+//check if SQL statement is correct, thin add data into the 'submissions' table and display a message
+if ($stmt) {
     $name = $_POST['Name'] ?? '';
     $email = $_POST['Email'] ?? '';
     $phoneNumber = $_POST['PhoneNumber'] ?? '';
     $helpType = $_POST['helpType'] ?? '';
     $message = $_POST['Message'] ?? '';
 
-    // Validate input
-    if (empty($name) || empty($email) || empty($phoneNumber) || empty($helpType) || empty($message)) {
-        echo "All fields are required!";
-    } else {
-        // Prepare SQL statement to insert data into the 'submissions' table
-        $sql = "INSERT INTO submissions (name, email, phonenumber, helptype, message) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
+    $stmt->bind_param("sssss", $name, $email, $phoneNumber, $helpType, $message);
+    $stmt->execute();
 
-        // Bind parameters and execute SQL statement
-        try {
-            $stmt->execute([$name, $email, $phoneNumber, $helpType, $message]);
-            echo "Thank you for contacting us!";
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-    }
+    echo "Thank you for contacting us!";
+} else {
+    //isplay the error message
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+// Close the connection
+$stmt->close();
+$conn->close();
 ?>
