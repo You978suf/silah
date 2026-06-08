@@ -1,177 +1,147 @@
-<html xmlns = ″http://www.w3.org/1999/xhtml″>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILAH — Start. Build. Grow.</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title> Silah </title>
-    
-
     <style>
-        @import url("webstyle.css");
-        
+        @import url("assets/css/style.css");
 
-      
-        a{color:black}
-
-        .text-banner {
-            position: relative;
-            width: 100%;
-            background-color: rgb(26, 99, 158);
-            font-size: 30px;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            animation: moveTextBanner 20s linear infinite;
-
-        }
-        @keyframes moveTextBanner {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-       
+        /* hero wrapper keeps the overlay text positioned over the image */
+        .hero { position: relative; }
     </style>
 </head>
-<body>
-    
-    <header>
 
-        <div class="container-fluid" style="background-color:steelblue">
-            <nav class="navbar navbar-expand-sm navbar-dark"> 
-                <a class="navbar-brand" href="index.html" style="font-size:x-large; margin-right: 20px;">
-                    <img src="logo.png" alt="Logo" class="d-inline-block align-text-top" style="margin-right: 20px;">SILAH</a>
-                <ul class="navbar-nav" style="text-align: end;">
-                    
-                    <li class="nav-item"><a class="nav-link text-white active bg-secondary" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="Consultants.html">Consultants</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="TeamMembers.html">Team Members</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="Investors.html">Investors</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="AboutUs.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="ContactUs.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="funpage.html">Fun time</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="calculation.html">Subscribe to Us!</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="login.html">Log In</a></li>
+<body>
+
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm navbar-dark">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo.png" alt="Logo">SILAH</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Consultants.html">Consultants</a></li>
+                    <li class="nav-item"><a class="nav-link" href="TeamMembers.html">Team Members</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Investors.html">Investors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="funpage.html">Fun time</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calculation.html">Subscribe to Us!</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-        <img id="image" src="home_header.jpeg" alt="background-image" style="width:100%;">
-        
-        <div class="centered"></br></br></br>
-            <h2>Start.</h2>
-            <h2>Build.</h2>
-            <h2>Grow.</h2></div>
-        </br>
-         <div class="text"><p>While you're lost in trying to build your own company,</br>
-                              the 'SILAH' platform comes to facilitate this long journey </br>
-                              of searching for you. Here, you will meet a diverse group </br>
-                              of consultants and investors, in addition to members that </br>
-                              you can add to your team</p></div>    
-       
-    
-
-<table >
-    <tr>
-        <th style="padding: 10px;" rowspan="2"><img src="home_investors.jpg" alt="Investors"></th>
-        <th></th>
-        <th><a href="Investors.html" style="font-style: italic; font-size: 45px;">Investors</a> <br/><h5>Find investor to your idea</h5></th><br/>
-        
-    </tr>
-
-</table>
-<table cellspacing="20">
-    <tr>
-        <th style="padding: 10px;" rowspan="2"><img src="home_consultants.jpg" alt="Consultants"></th>
-        <th></th>
-        <th><a href="Consultants.html" style="font-style: italic; font-size: 45px;">Consultants</a> <br/><h5>Find some consultation to your idea</h5></th><br/>
-        
-    </tr>
-
-</table>
-<table cellspacing="20" >
-    <tr>
-        <th style="padding: 10px;" rowspan="2"><img src="home_team_members.jpg" alt="Team Members"></th>
-        <th></th>
-        <th><a href="Team members.html" style="font-style: italic; font-size: 45px;">Team Members</a> <br/><h5>Find team members to help you</h5></th><br/>
-        
-    </tr>
-
-</table>
-</br>
-
-<footer style="background-color:steelblue">
-    <div class="footer-container">
-        <div class="logo-social">
-        <h3>Follow us</h3>
-        <div class="social-links" >
-            <a href="https://twitter.com/"><img src="x.jpg" width="40px"></a>
-            <a href="https://www.instagram.com/"><img src="instagram.png" width="40px"></a>
-            <a href="https://www.youtube.com/"><img src="youtube.png"  width="40px"></a>
+    <!-- Hero -->
+    <div class="hero">
+        <img id="image" src="assets/img/home_header.jpeg" alt="background-image">
+        <div class="centered">
+            <h2>Start. Build. Grow.</h2>
+        </div>
+        <div class="text">
+            <p>While you're lost in trying to build your own company, the <strong>SILAH</strong>
+               platform comes to facilitate this long journey. Here you will meet a diverse group
+               of consultants and investors, plus members you can add to your team.</p>
         </div>
     </div>
-    <div class="Quick links">
-        <h3>Quick Links</h3>
-        <ul style="list-style-type: circle;">
-            <li><a href="index.html" >Home</a></li>
-            <li><a href="Consultants.html">Consultants</a></li>
-            <li><a href="TeamMembers.html">Team Members</a></li>
-            <li><a href="Investors.html">Investors</a></li>
-            <li><a href="AboutUs.html">About Us</a></li>
-            <li><a href="ContactUs.html">Contact Us</a></li>
-        </ul>
+
+    <!-- Intro -->
+    <div class="intro">
+        <h2>Everything your startup needs, in one place</h2>
+        <p>Connect with the right people and resources to turn your idea into a thriving business.</p>
     </div>
-    <div class="contact info">
-        <h3>Contact Info</h3>
-        <p>Email: <a href="mailto: s137312@student.squ.edu.om">contact@Silah.com</a></p>
+
+    <!-- Feature cards -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <img src="assets/img/home_investors.jpg" alt="Investors">
+            <div class="body">
+                <h3>Investors</h3>
+                <p>Find an investor for your idea and secure the funding you need to grow.</p>
+                <a class="more" href="Investors.html">Explore investors</a>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="assets/img/home_consultants.jpg" alt="Consultants">
+            <div class="body">
+                <h3>Consultants</h3>
+                <p>Get expert consultation across every field relevant to your startup.</p>
+                <a class="more" href="Consultants.html">Meet consultants</a>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="assets/img/home_team_members.jpg" alt="Team Members">
+            <div class="body">
+                <h3>Team Members</h3>
+                <p>Find talented co-founders and team members to help you build.</p>
+                <a class="more" href="TeamMembers.html">Find members</a>
+            </div>
+        </div>
     </div>
-</div>
-</footer>
 
-<div class="text-banner">Welcome to the Silah website! Today is <span id="current-date"></span>, and the time is <span id="current-time"></span></div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="logo-social">
+                <h3>Follow us</h3>
+                <div class="social-links">
+                    <a href="https://twitter.com/"><img src="assets/img/x.jpg" alt="X"></a>
+                    <a href="https://www.instagram.com/"><img src="assets/img/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/"><img src="assets/img/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Consultants.html">Consultants</a></li>
+                    <li><a href="TeamMembers.html">Team Members</a></li>
+                    <li><a href="Investors.html">Investors</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <p>Email: <a href="mailto:contact@silah.com">contact@Silah.com</a></p>
+            </div>
+        </div>
+    </footer>
 
-</div>
+    <div class="text-banner">Welcome to the SILAH website! Today is <span id="current-date"></span>, and the time is <span id="current-time"></span></div>
 
-<script>
-    // Select the image element from the DOM.
-    let image = document.getElementById("image");
-    // Array containing the paths of images to be displayed.
-    let images = ['home.jpeg', 'home.jpg', 'home1.jpg'];
+    <script>
+        // Rotate the hero background image every 1.5 seconds.
+        let image = document.getElementById("image");
+        let images = ['assets/img/home.jpeg', 'assets/img/home.jpg', 'assets/img/home1.jpg'];
+        setInterval(function () {
+            let random = Math.floor(Math.random() * images.length);
+            image.src = images[random];
+        }, 1500);
 
-    // Set an interval to change the image source every 1500 milliseconds (1.5 seconds).
-    setInterval(function() {
-        // Generate a random index based on the number of images in the array.
-        let random = Math.floor(Math.random() * images.length);
-        // Change the src attribute of the image element to a new image based on the random index.
-        image.src = images[random];
-    }, 1500);
-
-    // Array containing the names of the months for date display.
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
-                    "October", "November", "December"];
-
-    // Function to update the date and time on the webpage.
-    function updateDateTime() {
-        // Create a new Date object representing the current date and time.
-        const now = new Date();
-        // Format the date as Day-Month-Year, using the month names array for readability.
-        var year = now.getDate() + "-" + (months[now.getMonth()]) + "-" + now.getFullYear();
-        // Format the time as Hour:Minute:Second.
-        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-        
-        // Set the innerHTML of elements with IDs 'current-time' and 'current-date' to display the time and date.
-        document.getElementById("current-time").innerHTML = time;
-        document.getElementById("current-date").innerHTML = year;
-    }
-
-    // Call updateDateTime immediately to set the initial date and time.
-    updateDateTime();
-    // Set an interval to update the date and time every 1000 milliseconds (1 second).
-    setInterval(updateDateTime, 1000);
-
-</script>
-
+        // Live date and time in the announcement banner.
+        const months = ["January", "February", "March", "April", "May", "June", "July",
+                        "August", "September", "October", "November", "December"];
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.getDate() + "-" + months[now.getMonth()] + "-" + now.getFullYear();
+            const time = now.getHours() + ":" + String(now.getMinutes()).padStart(2, '0') +
+                         ":" + String(now.getSeconds()).padStart(2, '0');
+            document.getElementById("current-time").innerHTML = time;
+            document.getElementById("current-date").innerHTML = date;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
 
 </body>
 </html>

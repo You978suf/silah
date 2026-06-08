@@ -1,0 +1,415 @@
+/* ============================================================
+   SILAH — Shared design system
+   Imported by every page (after Bootstrap, so this wins).
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ---------- Design tokens ---------- */
+:root {
+  --primary:        #1d4e89;   /* refined steel blue   */
+  --primary-dark:   #143a66;
+  --primary-light:  #2f6db3;
+  --accent:         #f5a623;   /* warm highlight       */
+  --bg:             #eef2f5;   /* page background      */
+  --surface:        #ffffff;   /* cards / panels       */
+  --surface-alt:    #f6f9fc;
+  --text:           #1f2a37;
+  --muted:          #5b6b7b;
+  --border:         #dde5ec;
+  --radius:         14px;
+  --radius-sm:      8px;
+  --shadow:         0 6px 20px rgba(20, 58, 102, .10);
+  --shadow-lg:      0 14px 38px rgba(20, 58, 102, .18);
+  --transition:     .25s ease;
+}
+
+/* ---------- Reset / base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--primary-dark); }
+
+h1, h2, h3, h4, h5 { line-height: 1.2; font-weight: 600; color: var(--text); }
+
+section { padding: 64px 6%; }
+
+/* ============================================================
+   NAVBAR  (works with the existing Bootstrap markup)
+   ============================================================ */
+header .container-fluid,
+.navbar {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary)) !important;
+}
+
+.navbar {
+  padding: .6rem 4% !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .18);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.navbar-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  color: #fff !important;
+}
+.navbar-brand img { width: 42px; height: 42px; object-fit: contain; }
+
+.navbar-nav { gap: 4px; flex-wrap: wrap; align-items: center; }
+
+.nav-link {
+  color: rgba(255, 255, 255, .88) !important;
+  font-size: .95rem;
+  font-weight: 500;
+  padding: .45rem .85rem !important;
+  border-radius: 999px;
+  transition: background var(--transition), color var(--transition);
+}
+.nav-link:hover { background: rgba(255, 255, 255, .15); color: #fff !important; }
+
+/* active item (Bootstrap adds .active / the pages add bg-secondary) */
+.nav-link.active,
+.nav-link.bg-secondary {
+  background: var(--accent) !important;
+  color: #14253a !important;
+  font-weight: 600;
+}
+
+/* ============================================================
+   HERO header image + overlay text (.centered / .text)
+   ============================================================ */
+#image {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  opacity: 1;
+  filter: brightness(.62);
+}
+
+.centered {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, .55);
+  z-index: 2;
+}
+.centered h2 {
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  margin: 0;
+  padding: 2px;
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translateX(-50%);
+  width: min(760px, 88%);
+  text-align: center;
+  color: #fff;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+  z-index: 2;
+}
+.text p { margin: 0; }
+
+/* ============================================================
+   GENERIC HEADINGS / SECTION TITLES
+   ============================================================ */
+th { font-size: 1.4rem; }
+h5 { font-size: 1rem; font-weight: 500; color: var(--muted); }
+
+/* ============================================================
+   CARDS (Bootstrap .card on Consultants / Investors / Team)
+   ============================================================ */
+.card {
+  border: none !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  margin: 0 auto 28px !important;
+  max-width: 920px;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.card.bg-secondary {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+.card.bg-secondary .card-title { color: var(--primary); }
+.card.bg-secondary .card-text,
+.card.bg-secondary strong { color: var(--text) !important; }
+.card-img { height: 100%; object-fit: cover; }
+.card-body { padding: 1.6rem 1.8rem; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+button,
+.btn,
+input[type="submit"],
+input[type="button"] {
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn-primary,
+input[type="submit"] {
+  background: var(--primary) !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  padding: .6rem 1.4rem !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+.btn-primary:hover,
+input[type="submit"]:hover {
+  background: var(--primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+input[type="button"] {
+  background: var(--accent);
+  border: none;
+  color: #14253a;
+  font-weight: 600;
+  padding: .55rem 1.1rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: .55rem .8rem;
+  font-family: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-light) !important;
+  box-shadow: 0 0 0 3px rgba(47, 109, 179, .18) !important;
+}
+
+form { line-height: 2.2; }
+
+/* ============================================================
+   PRICING (calculation.html) + plan specs (checkout.html)
+   ============================================================ */
+.container { width: 100%; min-height: auto; background: transparent; }
+.container h2 {
+  color: var(--primary);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  padding: 48px 0;
+  text-align: center;
+}
+
+.price-row,
+.plan-details {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.price-column,
+.specs {
+  background: linear-gradient(160deg, #20304d, #1a2740);
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  color: #fff;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.price-column:hover,
+.specs:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+.price-column h3 { color: #fff; font-size: 2.4rem; margin: 16px 0 28px; font-weight: 600; }
+.price-column h3 span { font-size: 1rem; color: #b9c6d8; }
+.price-column p { font-size: 1.2rem; }
+.price-column ul { text-align: left; margin: 20px 0; color: #cfe6cf; list-style: none; }
+.price-column ul li { margin: 12px 0; padding-left: 24px; position: relative; }
+.price-column ul li::before {
+  content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+}
+
+.price-column button,
+.specs button {
+  width: 100%;
+  padding: 13px 0;
+  background: transparent;
+  color: #fff;
+  font-size: .95rem;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-sm);
+  margin-top: 26px;
+}
+.price-column button:hover,
+.specs button:hover { background: var(--accent); color: #14253a; }
+
+.planName, .planPrice { font-size: 1.25rem; text-align: left; }
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal { position: fixed; inset: 0; z-index: 2000; overflow: auto; background: rgba(15, 28, 48, .55); }
+.modal-content {
+  background: var(--surface);
+  margin: 8% auto;
+  padding: 28px;
+  border: none;
+  border-radius: var(--radius);
+  width: min(520px, 90%);
+  box-shadow: var(--shadow-lg);
+}
+.close { color: var(--muted); float: right; font-size: 28px; font-weight: bold; line-height: 1; }
+.close:hover, .close:focus { color: var(--text); cursor: pointer; }
+
+/* ============================================================
+   ABOUT US alternating sections
+   ============================================================ */
+.photo-desc, .photo-desc2 {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 6%;
+}
+.photo-desc img, .photo-desc2 img {
+  width: 320px; border-radius: var(--radius); box-shadow: var(--shadow); flex-shrink: 0;
+}
+.photo-desc h3, .photo-desc2 h3 { font-size: 1.05rem; font-weight: 400; line-height: 1.8; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary)) !important;
+  color: #eaf1f8;
+  margin-top: 48px;
+}
+.footer-container {
+  color: #eaf1f8;
+  padding: 44px 6%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-container h3 { color: #fff; margin-bottom: 14px; font-size: 1.1rem; }
+.footer-container a { color: #cfe0f1; }
+.footer-container a:hover { color: var(--accent); }
+.footer-container ul { list-style: none; }
+.footer-container ul li { margin: 8px 0; }
+.social-links { display: flex; gap: 14px; margin-top: 6px; }
+.social-links img {
+  width: 38px; height: 38px; border-radius: 8px; background: #fff; padding: 5px;
+  transition: transform var(--transition);
+}
+.social-links img:hover { transform: translateY(-3px) scale(1.05); }
+
+/* ============================================================
+   SCROLLING ANNOUNCEMENT BANNER
+   ============================================================ */
+.text-banner {
+  position: relative;
+  width: 100%;
+  background: var(--accent);
+  color: #14253a;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ============================================================
+   HOME — feature cards (used by the rebuilt index.html)
+   ============================================================ */
+.intro {
+  text-align: center;
+  max-width: 820px;
+  margin: 56px auto 8px;
+  padding: 0 6%;
+}
+.intro h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--primary); }
+.intro p { color: var(--muted); font-size: 1.1rem; margin-top: 12px; }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1140px;
+  margin: 40px auto;
+  padding: 0 6%;
+}
+.feature-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.feature-card img { height: 200px; width: 100%; object-fit: cover; }
+.feature-card .body { padding: 22px 24px 26px; }
+.feature-card h3 { color: var(--primary); font-size: 1.5rem; font-style: italic; }
+.feature-card p { color: var(--muted); margin: 8px 0 16px; }
+.feature-card a.more {
+  display: inline-block; font-weight: 600; color: var(--accent);
+}
+.feature-card a.more::after { content: " →"; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .photo-desc, .photo-desc2 { flex-direction: column; text-align: center; }
+  .photo-desc img, .photo-desc2 img { width: 100%; max-width: 360px; }
+  .card .row { flex-direction: column; }
+  .footer-container { flex-direction: column; text-align: center; }
+  .social-links { justify-content: center; }
+  #image { max-height: 320px; }
+}
