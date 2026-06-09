@@ -22,13 +22,13 @@ function displayDiscountProblem() {
     // Determine the image to display in the modal based on the selected plan stored in sessionStorage.
     switch (sessionStorage.getItem('selectedPlan')) {
         case "Student":
-            imageUrl = "studentProblem.png"; // Image path for the student plan.
+            imageUrl = "assets/img/studentProblem.png"; // Image path for the student plan.
             break;
         case "Premium":
-            imageUrl = "premiumProblem.jpg"; // Image path for the premium plan.
+            imageUrl = "assets/img/premiumProblem.jpg"; // Image path for the premium plan.
             break;
         case "Professional":
-            imageUrl = "professionalProblem.png"; // Image path for the professional plan.
+            imageUrl = "assets/img/professionalProblem.png"; // Image path for the professional plan.
             break;
     }
     document.getElementById('mathQuestionImage').src = imageUrl; // Set the source of the image element to the selected image URL.
